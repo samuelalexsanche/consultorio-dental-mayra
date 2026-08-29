@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!--
+  ============================================================================
+  DEMO — Consultorio Dental Mayra · construido por Mattera Systems
+  Reemplazos antes de publicar (buscar y reemplazar en todo el proyecto):
+    Consultorio Dental Mayra        → nombre real del consultorio
+    Dra. Mayra Villaseñor Rangel → nombre real de la dentista
+    523312345678                 → WhatsApp real (52 + LADA + número, sin signos)
+    +52 33 1234 5678             → WhatsApp real formateado
+    Av. Américas 1254, Providencia → calle y colonia reales
+    44630                        → código postal real
+    https://consultoriodentalmayra.mx → dominio real
+    20.6897 / -103.3918          → latitud / longitud reales
+    0000000                      → cédulas profesionales reales
+  ============================================================================
+-->
+
+<title>Consultorio Dental Mayra | Ortodoncia, blanqueamiento y rehabilitación oral en Guadalajara</title>
+<meta name="description" content="Consultorio dental en Guadalajara con 14 años de experiencia en ortodoncia, blanqueamiento dental y rehabilitación oral. Valoración con diagnóstico digital y plan de tratamiento a meses sin intereses. Agenda por WhatsApp.">
+<link rel="canonical" href="https://consultoriodentalmayra.mx/">
+<!-- DEMO: noindex mientras vive en la URL de GitHub Pages con datos de prueba.
+     Al publicar en el dominio real, restaurar la línea comentada de abajo. -->
+<meta name="robots" content="noindex, nofollow">
+<!-- <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"> -->
+<meta name="author" content="Dra. Mayra Villaseñor Rangel">
+<meta name="geo.region" content="MX-JAL">
+<meta name="geo.placename" content="Guadalajara, Jalisco">
+<meta name="geo.position" content="20.6897;-103.3918">
+<meta name="ICBM" content="20.6897, -103.3918">
+<meta name="theme-color" content="#F7FAFB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06181D" media="(prefers-color-scheme: dark)">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="Consultorio Dental Mayra">
+<meta property="og:url" content="https://consultoriodentalmayra.mx/">
+<meta property="og:title" content="Consultorio Dental Mayra | Ortodoncia y estética dental en Guadalajara">
+<meta property="og:description" content="14 años transformando sonrisas en Guadalajara. Ortodoncia, blanqueamiento y rehabilitación oral con diagnóstico digital. Agenda tu valoración por WhatsApp.">
+<meta property="og:image" content="https://consultoriodentalmayra.mx/assets/img/og-consultorio-dental-mayra.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Interior del Consultorio Dental Mayra en Guadalajara">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Consultorio Dental Mayra | Ortodoncia y estética dental en Guadalajara">
+<meta name="twitter:description" content="14 años transformando sonrisas en Guadalajara. Agenda tu valoración por WhatsApp.">
+<meta name="twitter:image" content="https://consultoriodentalmayra.mx/assets/img/og-consultorio-dental-mayra.jpg">
+
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- ===================== DATOS ESTRUCTURADOS (SEO + GEO/AEO) ===================== -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":["Dentist","MedicalBusiness","LocalBusiness"],
+      "@id":"https://consultoriodentalmayra.mx/#clinica",
+      "name":"Consultorio Dental Mayra",
+      "alternateName":"Dental Mayra Guadalajara",
+      "description":"Consultorio dental en Guadalajara, Jalisco, con 14 años de experiencia en ortodoncia, blanqueamiento dental y rehabilitación oral.",
+      "url":"https://consultoriodentalmayra.mx/",
+      "telephone":"+523312345678",
+      "email":"contacto@consultoriodentalmayra.mx",
+      "priceRange":"$$",
+      "currenciesAccepted":"MXN",
+      "paymentAccepted":"Efectivo, Tarjeta de crédito, Tarjeta de débito, Transferencia, Meses sin intereses",
+      "image":"https://consultoriodentalmayra.mx/assets/img/og-consultorio-dental-mayra.jpg",
+      "logo":"https://consultoriodentalmayra.mx/assets/icons/logo.svg",
+      "foundingDate":"2012",
+      "slogan":"Odontología que se siente distinta desde la primera cita",
+      "address":{
+        "@type":"PostalAddress",
+        "streetAddress":"Av. Américas 1254, Providencia",
+        "addressLocality":"Guadalajara",
+        "addressRegion":"Jalisco",
+        "postalCode":"44630",
+        "addressCountry":"MX"
+      },
+      "geo":{"@type":"GeoCoordinates","latitude":20.6897,"longitude":-103.3918},
+      "hasMap":"https://www.google.com/maps/search/?api=1&query=20.6897,-103.3918",
+      "areaServed":[
+        {"@type":"City","name":"Guadalajara"},
+        {"@type":"City","name":"Zapopan"},
+        {"@type":"City","name":"Tlaquepaque"},
+        {"@type":"City","name":"Tonalá"},
+        {"@type":"AdministrativeArea","name":"Zona Metropolitana de Guadalajara"}
+      ],
+      "openingHoursSpecification":[
+        {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},
+        {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"14:00"}
+      ],
+      "founder":{"@id":"https://consultoriodentalmayra.mx/#dentista"},
+      "employee":{"@id":"https://consultoriodentalmayra.mx/#dentista"},
+      "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"187","bestRating":"5"},
+      "sameAs":[
+        "https://www.facebook.com/consultoriodentalmayra",
+        "https://www.instagram.com/consultoriodentalmayra",
+        "https://maps.app.goo.gl/ejemplo"
+      ],
+      "potentialAction":{
+        "@type":"ReserveAction",
+        "target":{"@type":"EntryPoint","urlTemplate":"https://wa.me/523312345678","inLanguage":"es-MX","actionPlatform":["https://schema.org/DesktopWebPlatform","https://schema.org/MobileWebPlatform"]},
+        "result":{"@type":"Reservation","name":"Valoración dental"}
+      },
+      "makesOffer":[
+        {"@type":"Offer","itemOffered":{"@type":"MedicalProcedure","name":"Ortodoncia con brackets y alineadores","procedureType":"https://schema.org/TherapeuticProcedure"}},
+        {"@type":"Offer","itemOffered":{"@type":"MedicalProcedure","name":"Blanqueamiento dental profesional","procedureType":"https://schema.org/TherapeuticProcedure"}},
+        {"@type":"Offer","itemOffered":{"@type":"MedicalProcedure","name":"Rehabilitación oral integral","procedureType":"https://schema.org/TherapeuticProcedure"}}
+      ]
+    },
+    {
+      "@type":"Dentist",
+      "@id":"https://consultoriodentalmayra.mx/#dentista",
+      "name":"Dra. Mayra Villaseñor Rangel",
+      "jobTitle":"Cirujana Dentista · Especialista en Ortodoncia",
+      "worksFor":{"@id":"https://consultoriodentalmayra.mx/#clinica"},
+      "knowsAbout":["Ortodoncia","Alineadores transparentes","Blanqueamiento dental","Rehabilitación oral","Carillas de porcelana","Odontología estética"],
+      "alumniOf":{"@type":"CollegeOrUniversity","name":"Universidad de Guadalajara"},
+      "hasCredential":[
+        {"@type":"EducationalOccupationalCredential","credentialCategory":"Cédula profesional","identifier":"0000000"},
+        {"@type":"EducationalOccupationalCredential","credentialCategory":"Cédula de especialidad en Ortodoncia","identifier":"0000000"}
+      ]
+    },
+    {
+      "@type":"WebSite",
+      "@id":"https://consultoriodentalmayra.mx/#sitio",
+      "url":"https://consultoriodentalmayra.mx/",
+      "name":"Consultorio Dental Mayra",
+      "inLanguage":"es-MX",
+      "publisher":{"@id":"https://consultoriodentalmayra.mx/#clinica"}
+    },
+    {
+      "@type":"WebPage",
+      "@id":"https://consultoriodentalmayra.mx/#pagina",
+      "url":"https://consultoriodentalmayra.mx/",
+      "name":"Consultorio Dental Mayra | Ortodoncia, blanqueamiento y rehabilitación oral en Guadalajara",
+      "isPartOf":{"@id":"https://consultoriodentalmayra.mx/#sitio"},
+      "about":{"@id":"https://consultoriodentalmayra.mx/#clinica"},
+      "inLanguage":"es-MX",
+      "primaryImageOfPage":"https://consultoriodentalmayra.mx/assets/img/og-consultorio-dental-mayra.jpg",
+      "breadcrumb":{"@id":"https://consultoriodentalmayra.mx/#miga"}
+    },
+    {
+      "@type":"BreadcrumbList",
+      "@id":"https://consultoriodentalmayra.mx/#miga",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Inicio","item":"https://consultoriodentalmayra.mx/"},
+        {"@type":"ListItem","position":2,"name":"Servicios","item":"https://consultoriodentalmayra.mx/#servicios"},
+        {"@type":"ListItem","position":3,"name":"Contacto","item":"https://consultoriodentalmayra.mx/#contacto"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "@id":"https://consultoriodentalmayra.mx/#faq",
+      "mainEntity":[
+        {"@type":"Question","name":"¿Cuánto cuesta una ortodoncia en Guadalajara?","acceptedAnswer":{"@type":"Answer","text":"En Consultorio Dental Mayra un tratamiento de ortodoncia con brackets metálicos parte de $12,000 MXN e incluye estudio, colocación y las citas de ajuste mensuales. Los brackets estéticos y los alineadores transparentes tienen un costo mayor según la complejidad del caso. El precio exacto se define en la valoración, porque depende del tipo de mordida, del tiempo estimado y de si se requiere trabajo previo. Manejamos meses sin intereses con tarjeta de crédito."}},
+        {"@type":"Question","name":"¿Cuánto tiempo dura un tratamiento de ortodoncia?","acceptedAnswer":{"@type":"Answer","text":"La mayoría de los tratamientos de ortodoncia dura entre 12 y 24 meses. Los casos de apiñamiento leve pueden resolverse en 8 a 12 meses, mientras que las mordidas cruzadas o los casos con extracciones suelen requerir de 24 a 30 meses. En la valoración se entrega un plan con el tiempo estimado para cada caso."}},
+        {"@type":"Question","name":"¿El blanqueamiento dental daña el esmalte?","acceptedAnswer":{"@type":"Answer","text":"No. Un blanqueamiento realizado por un odontólogo con peróxido de hidrógeno de grado profesional no daña el esmalte: actúa sobre las moléculas de pigmento dentro del diente sin desgastar la superficie. Lo que sí puede dañar el esmalte son los productos caseros abrasivos como bicarbonato, carbón activado o limón. Es normal sentir sensibilidad durante 24 a 48 horas después del procedimiento."}},
+        {"@type":"Question","name":"¿Duele ponerse brackets?","acceptedAnswer":{"@type":"Answer","text":"La colocación de brackets no duele, porque no se toca el nervio del diente ni se requiere anestesia. Lo que sí se siente es una molestia parecida a presión durante los primeros 3 a 5 días después de la colocación y después de cada ajuste. Se maneja con analgésico común y dieta blanda."}},
+        {"@type":"Question","name":"¿Cuánto dura una valoración dental y qué incluye?","acceptedAnswer":{"@type":"Answer","text":"La valoración dura entre 30 y 40 minutos e incluye revisión clínica completa, fotografías intraorales, escaneo o radiografía según el caso, y la entrega de un plan de tratamiento por escrito con costos y tiempos. Se agenda directamente por WhatsApp al +52 33 1234 5678."}},
+        {"@type":"Question","name":"¿Aceptan pagos a meses sin intereses?","acceptedAnswer":{"@type":"Answer","text":"Sí. Aceptamos tarjeta de crédito con meses sin intereses en tratamientos desde $5,000 MXN, además de efectivo, débito y transferencia. Para ortodoncia y rehabilitación oral existe un esquema de pago mensual sin tarjeta, con enganche y mensualidades fijas durante el tratamiento."}},
+        {"@type":"Question","name":"¿Qué es una rehabilitación oral y cuándo se necesita?","acceptedAnswer":{"@type":"Answer","text":"Una rehabilitación oral es el tratamiento que devuelve función y estética a una boca con desgaste, dientes ausentes, fracturas o restauraciones antiguas mal ajustadas. Combina coronas, carillas, incrustaciones, implantes o prótesis según el caso. Se necesita cuando el paciente ya no puede masticar con comodidad, tiene dolor articular, o cuando varios dientes requieren tratamiento simultáneo."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="progreso" id="progreso" aria-hidden="true"></div>
+
+<!-- ===================== NAVEGACIÓN ===================== -->
+<header class="nav" id="nav">
+  <div class="env nav__caja">
+    <a class="marca" href="#inicio" aria-label="Consultorio Dental Mayra, inicio">
+      <svg class="marca__sig" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M20 5.5c-3.2 0-4.6 1.5-7.4 1.5-4 0-6.9 3-6.9 8 0 6.6 2.4 12.3 4.6 16.4 1.2 2.2 2.4 3.3 3.6 3.3 1.6 0 2.2-1.6 2.9-4.6.6-2.6 1.3-4.2 3.2-4.2s2.6 1.6 3.2 4.2c.7 3 1.3 4.6 2.9 4.6 1.2 0 2.4-1.1 3.6-3.3 2.2-4.1 4.6-9.8 4.6-16.4 0-5-2.9-8-6.9-8-2.8 0-4.2-1.5-7.4-1.5Z" fill="currentColor"/>
+        <path d="M20 12.5c2.4 0 4.1 1.1 4.1 1.1" stroke="var(--menta)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>Dental Mayra<small>Guadalajara</small></span>
+    </a>
+
+    <nav class="nav__menu" id="menu" aria-label="Navegación principal">
+      <a class="nav__link" href="#servicios">Servicios</a>
+      <a class="nav__link" href="#proceso">Cómo trabajamos</a>
+      <a class="nav__link" href="#resultados">Resultados</a>
+      <a class="nav__link" href="#doctora">La doctora</a>
+      <a class="nav__link" href="#preguntas">Preguntas</a>
+      <a class="nav__link" href="#contacto">Ubicación</a>
+      <a class="btn btn--wa btn--movil" href="https://wa.me/523312345678?text=Hola%2C%20quiero%20agendar%20una%20valoraci%C3%B3n" data-wa="general" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </nav>
+
+    <div class="nav__cta">
+      <a class="btn btn--wa" href="https://wa.me/523312345678?text=Hola%2C%20quiero%20agendar%20una%20valoraci%C3%B3n" data-wa="general" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.13c-.25.69-1.46 1.32-2 1.36-.51.04-1.16.06-1.87-.12-.43-.14-.98-.32-1.69-.62-2.97-1.28-4.91-4.27-5.06-4.47-.15-.2-1.21-1.61-1.21-3.07 0-1.46.76-2.18 1.03-2.48.27-.3.59-.37.79-.37.2 0 .39 0 .57.01.18.01.43-.07.67.51.25.6.84 2.06.91 2.21.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.12.65-.07.17-.2.74-.87.94-1.16.2-.3.4-.25.67-.15.27.1 1.71.81 2.01.96.3.15.5.22.57.35.07.12.07.72-.18 1.41Z"/></svg>
+        <span>WhatsApp</span>
+      </a>
+      <button class="nav__hamb" id="hamb" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero__fondo" aria-hidden="true"></div>
+  <div class="hero__malla" aria-hidden="true"></div>
+  <div class="hero__esmalte" id="esmalte" aria-hidden="true"></div>
+
+  <div class="env hero__rejilla">
+    <div class="hero__contenido">
+      <span class="hero__insignia" data-anim="insignia"><b>14</b> años de práctica en Guadalajara</span>
+
+      <h1>
+        <span class="linea"><span>Ortodoncia,</span></span>
+        <span class="linea"><span>blanqueamiento y</span></span>
+        <span class="linea"><span><em>rehabilitación oral</em></span></span>
+        <span class="linea"><span>en Guadalajara</span></span>
+      </h1>
+
+      <p class="hero__texto" data-anim="parrafo">
+        Consultorio dental en Providencia. Cada tratamiento empieza con un
+        diagnóstico digital y un plan por escrito: sabes qué se va a hacer,
+        cuánto tarda y cuánto cuesta antes de sentarte en el sillón.
+      </p>
+
+      <div class="hero__acciones" data-anim="acciones">
+        <a class="btn btn--wa btn--grande" href="https://wa.me/523312345678?text=Hola%2C%20quiero%20agendar%20una%20valoraci%C3%B3n%20dental" data-wa="hero" target="_blank" rel="noopener">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.13c-.25.69-1.46 1.32-2 1.36-.51.04-1.16.06-1.87-.12-.43-.14-.98-.32-1.69-.62-2.97-1.28-4.91-4.27-5.06-4.47-.15-.2-1.21-1.61-1.21-3.07 0-1.46.76-2.18 1.03-2.48.27-.3.59-.37.79-.37.2 0 .39 0 .57.01.18.01.43-.07.67.51.25.6.84 2.06.91 2.21.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.12.65-.07.17-.2.74-.87.94-1.16.2-.3.4-.25.67-.15.27.1 1.71.81 2.01.96.3.15.5.22.57.35.07.12.07.72-.18 1.41Z"/></svg>
+          Agendar valoración
+        </a>
+        <a class="btn btn--linea btn--grande" href="#servicios">Ver tratamientos</a>
+      </div>
+
+      <dl class="hero__pie" data-anim="datos">
+        <div class="hero__dato"><strong data-contador="14" data-sufijo="">0</strong><span>Años de experiencia</span></div>
+        <div class="hero__dato"><strong data-contador="3200" data-sufijo="+">0</strong><span>Pacientes atendidos</span></div>
+        <div class="hero__dato"><strong data-contador="4.9" data-decimal="1">0</strong><span>Reseñas en Google</span></div>
+      </dl>
+    </div>
+
+    <div class="arcada" id="arcada" aria-hidden="true">
+      <!-- La arcada dental se dibuja con JS (js/main.js → construirArcada) -->
+      <span class="chip chip--1"><i></i>Diagnóstico digital</span>
+      <span class="chip chip--2"><i></i>Sin dolor, sin sorpresas</span>
+      <span class="chip chip--3"><i></i>Meses sin intereses</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TIRA DE CONFIANZA ===================== -->
+<section class="tira" aria-label="Distintivos de la clínica">
+  <div class="tira__pista" id="tira">
+    <div class="tira__grupo">
+      <span class="tira__item">Cédula profesional verificada</span>
+      <span class="tira__item">Esterilización con autoclave clase B</span>
+      <span class="tira__item">Escaneo intraoral 3D</span>
+      <span class="tira__item">Radiografía digital de baja dosis</span>
+      <span class="tira__item">Meses sin intereses</span>
+      <span class="tira__item">Atención el mismo día en urgencias</span>
+      <span class="tira__item">Estacionamiento en el edificio</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICIOS ===================== -->
+<section class="seccion servicios" id="servicios">
+  <div class="env">
+    <div class="servicios__cabeza">
+      <div>
+        <span class="etiqueta revelar">Tratamientos</span>
+        <h2 class="titulo-seccion revelar">Tres especialidades, una sola boca que cuidar</h2>
+      </div>
+      <p class="entrada revelar">
+        No hacemos de todo un poco. Concentramos 14 años de práctica en ortodoncia,
+        estética dental y rehabilitación oral, que es donde un tratamiento bien planeado
+        cambia de verdad la vida del paciente.
+      </p>
+    </div>
+
+    <div class="rejilla-serv">
+
+      <article class="tarjeta tarjeta--ancha revelar" data-luz>
+        <span class="tarjeta__fdi">11 · Ortodoncia</span>
+        <svg class="tarjeta__icono" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M6 32c0-4 4-6 8-6h36c4 0 8 2 8 6s-4 6-8 6H14c-4 0-8-2-8-6Z" stroke-linejoin="round"/>
+          <rect x="14" y="24" width="10" height="16" rx="3"/>
+          <rect x="27" y="24" width="10" height="16" rx="3"/>
+          <rect x="40" y="24" width="10" height="16" rx="3"/>
+          <path d="M19 24v-6M32 24v-6M45 24v-6" stroke-linecap="round" opacity=".5"/>
+        </svg>
+        <h3>Ortodoncia con brackets y alineadores</h3>
+        <p>
+          Alineamos la mordida, no nada más los dientes de enfrente. Empezamos con
+          estudio cefalométrico y modelo digital para saber a dónde tiene que llegar
+          cada pieza antes de colocar el primer bracket.
+        </p>
+        <ul class="tarjeta__lista">
+          <li>Brackets metálicos, estéticos y autoligables</li>
+          <li>Alineadores transparentes removibles</li>
+          <li>Ortodoncia para adolescentes y adultos</li>
+          <li>Retenedores y seguimiento post-tratamiento</li>
+        </ul>
+        <div class="tarjeta__pie">
+          <span class="tarjeta__precio">Desde $12,000 MXN · 12 a 24 meses</span>
+          <a class="enlace-flecha" href="https://wa.me/523312345678?text=Hola%2C%20me%20interesa%20un%20tratamiento%20de%20ortodoncia" data-wa="ortodoncia" target="_blank" rel="noopener">
+            Preguntar por WhatsApp
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="tarjeta tarjeta--media revelar" data-luz>
+        <span class="tarjeta__fdi">21 · Estética</span>
+        <svg class="tarjeta__icono" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M32 9c-5 0-7.3 2.4-11.8 2.4-6.4 0-11 4.8-11 12.8 0 10.5 3.8 19.6 7.3 26.1 1.9 3.5 3.8 5.3 5.7 5.3 2.6 0 3.5-2.6 4.6-7.3 1-4.2 2.1-6.7 5.2-6.7s4.2 2.5 5.2 6.7c1.1 4.7 2 7.3 4.6 7.3 1.9 0 3.8-1.8 5.7-5.3 3.5-6.5 7.3-15.6 7.3-26.1 0-8-4.6-12.8-11-12.8C39.3 11.4 37 9 32 9Z" stroke-linejoin="round"/>
+          <path d="M46 18l1.6 3.6L51 23l-3.4 1.4L46 28l-1.6-3.6L41 23l3.4-1.4L46 18Z" fill="currentColor" stroke="none"/>
+          <path d="M22 24c0 4 2 7 5 8" stroke-linecap="round" opacity=".45"/>
+        </svg>
+        <h3>Blanqueamiento dental</h3>
+        <p>
+          Blanqueamiento en consultorio con peróxido de grado profesional y férulas
+          para mantenimiento en casa. De 3 a 8 tonos más claros en una sola sesión.
+        </p>
+        <div class="tarjeta__pie">
+          <span class="tarjeta__precio">Desde $3,500 MXN · 1 sesión</span>
+          <a class="enlace-flecha" href="https://wa.me/523312345678?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20blanqueamiento%20dental" data-wa="blanqueamiento" target="_blank" rel="noopener" aria-label="Preguntar por blanqueamiento por WhatsApp">
+            Preguntar
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="tarjeta tarjeta--media revelar" data-luz>
+        <span class="tarjeta__fdi">36 · Rehabilitación</span>
+        <svg class="tarjeta__icono" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M20 14h24a6 6 0 0 1 6 6v9a10 10 0 0 1-10 10H24a10 10 0 0 1-10-10v-9a6 6 0 0 1 6-6Z" stroke-linejoin="round"/>
+          <path d="M26 39v6a6 6 0 0 0 12 0v-6" stroke-linejoin="round"/>
+          <path d="M32 14v25" opacity=".4"/>
+          <path d="M14 24h36" opacity=".4"/>
+          <circle cx="32" cy="52" r="3"/>
+        </svg>
+        <h3>Rehabilitación oral</h3>
+        <p>
+          Coronas, carillas, incrustaciones y prótesis para devolver función y forma
+          a bocas con desgaste, fracturas o piezas ausentes. Diseño de sonrisa previo.
+        </p>
+        <div class="tarjeta__pie">
+          <span class="tarjeta__precio">Plan a medida · 2 a 6 citas</span>
+          <a class="enlace-flecha" href="https://wa.me/523312345678?text=Hola%2C%20necesito%20una%20rehabilitaci%C3%B3n%20oral" data-wa="rehabilitacion" target="_blank" rel="noopener" aria-label="Preguntar por rehabilitación oral por WhatsApp">
+            Preguntar
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<svg class="arco-sep arco-sep--porcelana" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 110V44c240-58 480-58 720 0s480 58 720 0v66Z" fill="currentColor"/>
+</svg>
+
+<!-- ===================== PROCESO ===================== -->
+<section class="seccion proceso" id="proceso">
+  <div class="env">
+    <span class="etiqueta revelar">Cómo trabajamos</span>
+    <h2 class="titulo-seccion revelar">De la primera cita al último ajuste</h2>
+    <p class="entrada revelar">
+      Los pasos van numerados con la notación dental FDI, la misma que usamos en la
+      ficha clínica para identificar cada pieza. Así se ve el tratamiento completo
+      antes de empezarlo.
+    </p>
+
+    <div class="proceso__lienzo">
+      <div class="proceso__linea" aria-hidden="true">
+        <svg viewBox="0 0 1200 112" preserveAspectRatio="none">
+          <path id="rutaProceso" d="M8 94C92 34 232 34 314 94S542 154 620 94S850 34 926 94L1192 94" fill="none"
+                stroke="var(--agua)" stroke-width="2" stroke-dasharray="7 9" opacity=".45"/>
+        </svg>
+      </div>
+
+      <ol class="pasos">
+        <li class="paso revelar">
+          <div class="paso__nodo"></div>
+          <span class="paso__fdi">11 — Valoración</span>
+          <h3>Diagnóstico digital</h3>
+          <p>Revisión clínica, fotos intraorales y escaneo o radiografía. Sin costo si el tratamiento se inicia.</p>
+          <span class="paso__tiempo">30–40 min</span>
+        </li>
+        <li class="paso revelar">
+          <div class="paso__nodo"></div>
+          <span class="paso__fdi">12 — Plan</span>
+          <h3>Presupuesto por escrito</h3>
+          <p>Recibes el plan con etapas, tiempos y costo cerrado. Nada se cobra fuera de lo firmado.</p>
+          <span class="paso__tiempo">24 horas</span>
+        </li>
+        <li class="paso revelar">
+          <div class="paso__nodo"></div>
+          <span class="paso__fdi">13 — Tratamiento</span>
+          <h3>Citas programadas</h3>
+          <p>Agenda fija y recordatorio por WhatsApp antes de cada cita. Sin salas de espera saturadas.</p>
+          <span class="paso__tiempo">Según el caso</span>
+        </li>
+        <li class="paso revelar">
+          <div class="paso__nodo"></div>
+          <span class="paso__fdi">14 — Seguimiento</span>
+          <h3>Retención y control</h3>
+          <p>Retenedores, limpieza de mantenimiento y revisión a los 6 meses incluidas el primer año.</p>
+          <span class="paso__tiempo">12 meses</span>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<svg class="arco-sep" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 110V44c240-58 480-58 720 0s480 58 720 0v66Z" fill="currentColor"/>
+</svg>
+
+<!-- ===================== RESULTADOS ===================== -->
+<section class="seccion resultados" id="resultados">
+  <div class="env resultados__rejilla">
+    <div>
+      <span class="etiqueta revelar">Resultados reales</span>
+      <h2 class="titulo-seccion revelar">Arrastra para ver el antes y el después</h2>
+      <p class="entrada revelar">
+        Caso de ortodoncia con apiñamiento moderado en arcada superior e inferior,
+        resuelto en 18 meses con brackets autoligables. Las fotografías se toman con
+        el mismo encuadre, la misma luz y sin retoque.
+      </p>
+      <div class="hero__acciones revelar">
+        <a class="btn btn--solido" href="https://wa.me/523312345678?text=Hola%2C%20quiero%20ver%20si%20mi%20caso%20es%20parecido" data-wa="resultados" target="_blank" rel="noopener">Consultar mi caso</a>
+      </div>
+    </div>
+
+    <figure class="comparador revelar" id="comparador" style="margin:0">
+      <div class="comparador__cara comparador__cara--antes">
+        <div class="comparador__vacio">FOTO «ANTES»<br>assets/img/caso-01-antes.jpg<br>1600 × 1000 px</div>
+      </div>
+      <div class="comparador__cara comparador__cara--despues">
+        <div class="comparador__vacio" style="background:var(--menta-clara)">FOTO «DESPUÉS»<br>assets/img/caso-01-despues.jpg<br>1600 × 1000 px</div>
+      </div>
+      <span class="comparador__marca comparador__marca--a">Antes</span>
+      <span class="comparador__marca comparador__marca--b">Después · 18 meses</span>
+      <div class="comparador__tirador" id="tirador" role="slider" tabindex="0"
+           aria-label="Comparar antes y después" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
+      <figcaption class="solo-lectores">Comparación fotográfica de un caso de ortodoncia antes y después de 18 meses de tratamiento.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================== DOCTORA ===================== -->
+<section class="seccion doctora" id="doctora">
+  <div class="env doctora__rejilla">
+    <div class="doctora__retrato revelar">
+      <div class="doctora__vacio">RETRATO DE LA DOCTORA<br>assets/img/doctora.jpg<br>1200 × 1500 px</div>
+    </div>
+    <div>
+      <span class="etiqueta revelar">Quién te atiende</span>
+      <h2 class="titulo-seccion revelar">Dra. Mayra Villaseñor Rangel</h2>
+      <p class="entrada revelar">
+        Cirujana dentista egresada de la Universidad de Guadalajara con especialidad
+        en ortodoncia. Desde 2012 atiende personalmente cada valoración: el paciente
+        no pasa de un doctor a otro entre citas, y quien diagnostica es quien trata.
+      </p>
+      <dl class="doctora__cred revelar">
+        <div><dt>Cédula profesional</dt><dd>0000000</dd></div>
+        <div><dt>Especialidad</dt><dd>Ortodoncia · Céd. 0000000</dd></div>
+        <div><dt>Formación continua</dt><dd>Alineadores y diseño digital de sonrisa</dd></div>
+        <div><dt>Idiomas</dt><dd>Español · Inglés</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIOS ===================== -->
+<section class="seccion opiniones">
+  <div class="env">
+    <span class="etiqueta revelar">Lo que dicen los pacientes</span>
+    <h2 class="titulo-seccion revelar">4.9 de 5 en 187 reseñas de Google</h2>
+
+    <div class="opiniones__rejilla">
+      <figure class="opinion revelar">
+        <div class="opinion__estrellas" aria-label="5 de 5 estrellas">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+        </div>
+        <blockquote>Llegué con miedo al dentista después de una mala experiencia. La doctora me explicó el plan completo en la primera cita y me dijo cuánto iba a costar todo desde el inicio. Llevo 14 meses con brackets y no me he arrepentido.</blockquote>
+        <figcaption><span class="opinion__inicial">A</span><span class="opinion__quienes"><span class="opinion__quien">Andrea R.</span><span class="opinion__que">Ortodoncia · 14 meses</span></span></figcaption>
+      </figure>
+
+      <figure class="opinion revelar">
+        <div class="opinion__estrellas" aria-label="5 de 5 estrellas">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+        </div>
+        <blockquote>Me hice el blanqueamiento antes de la boda de mi hermana. Una sola sesión y la diferencia se notó en las fotos. Lo mejor fue que no me dolió nada, solo un poco de sensibilidad al día siguiente.</blockquote>
+        <figcaption><span class="opinion__inicial">J</span><span class="opinion__quienes"><span class="opinion__quien">Jorge M.</span><span class="opinion__que">Blanqueamiento · 1 sesión</span></span></figcaption>
+      </figure>
+
+      <figure class="opinion revelar">
+        <div class="opinion__estrellas" aria-label="5 de 5 estrellas">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+        </div>
+        <blockquote>Traía tres coronas viejas y no podía masticar de un lado. Me hicieron la rehabilitación en cuatro citas y ahora muerdo parejo. Se nota que trabajan con laboratorio bueno, el color quedó idéntico.</blockquote>
+        <figcaption><span class="opinion__inicial">P</span><span class="opinion__quienes"><span class="opinion__quien">Patricia L.</span><span class="opinion__que">Rehabilitación · 4 citas</span></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="seccion faq" id="preguntas">
+  <div class="env faq__rejilla">
+    <div>
+      <span class="etiqueta revelar">Preguntas frecuentes</span>
+      <h2 class="titulo-seccion revelar">Lo que todo mundo pregunta antes de agendar</h2>
+      <p class="entrada revelar">
+        Si tu duda no está aquí, mándala por WhatsApp. Contesta la doctora o su
+        asistente, normalmente en menos de una hora en horario de consulta.
+      </p>
+      <div class="hero__acciones revelar">
+        <a class="btn btn--wa" href="https://wa.me/523312345678?text=Hola%2C%20tengo%20una%20duda%20sobre%20un%20tratamiento" data-wa="faq" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="faq__lista revelar" id="faq">
+      <div class="faq__item">
+        <h3><button class="faq__boton" aria-expanded="false">¿Cuánto cuesta una ortodoncia en Guadalajara?<span class="faq__mas" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel"><div>
+          <strong>Un tratamiento con brackets metálicos parte de $12,000 MXN</strong> e incluye el estudio inicial, la colocación y las citas de ajuste mensuales. Los brackets estéticos y los alineadores transparentes cuestan más según la complejidad. El precio exacto se define en la valoración, porque depende del tipo de mordida, del tiempo estimado y de si hace falta trabajo previo (limpieza, resinas o extracciones). Manejamos meses sin intereses con tarjeta de crédito.
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3><button class="faq__boton" aria-expanded="false">¿Cuánto tiempo dura un tratamiento de ortodoncia?<span class="faq__mas" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel"><div>
+          <strong>Entre 12 y 24 meses en la mayoría de los casos.</strong> Un apiñamiento leve puede resolverse en 8 a 12 meses; una mordida cruzada o un caso con extracciones suele llevar de 24 a 30 meses. En la valoración te entregamos el tiempo estimado por escrito, y ese estimado se revisa cada seis meses contra el avance real.
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3><button class="faq__boton" aria-expanded="false">¿El blanqueamiento dental daña el esmalte?<span class="faq__mas" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel"><div>
+          <strong>No, cuando lo aplica un odontólogo.</strong> El peróxido de hidrógeno de grado profesional actúa sobre las moléculas de pigmento dentro del diente, sin desgastar la superficie. Lo que sí daña el esmalte son los remedios caseros abrasivos: bicarbonato, carbón activado y limón. Es normal sentir sensibilidad durante 24 a 48 horas después de la sesión, y se controla con una pasta desensibilizante que te damos ahí mismo.
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3><button class="faq__boton" aria-expanded="false">¿Duele ponerse brackets?<span class="faq__mas" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel"><div>
+          <strong>La colocación no duele</strong> porque no se toca el nervio del diente ni se necesita anestesia. Lo que sí se siente es presión y molestia al masticar durante los primeros tres a cinco días, y otra vez por uno o dos días después de cada ajuste. Se maneja con analgésico común y dieta blanda. Te entregamos cera de ortodoncia desde la primera cita para las rozaduras.
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3><button class="faq__boton" aria-expanded="false">¿Qué incluye la valoración y cuánto dura?<span class="faq__mas" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel"><div>
+          <strong>Dura de 30 a 40 minutos</strong> e incluye revisión clínica completa, fotografías intraorales, escaneo o radiografía según el caso, y un plan de tratamiento por escrito con costos y tiempos. Se agenda por WhatsApp al +52 33 1234 5678 y el costo se descuenta del tratamiento si decides iniciarlo con nosotros.
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3><button class="faq__boton" aria-expanded="false">¿Aceptan pagos a meses sin intereses?<span class="faq__mas" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel"><div>
+          <strong>Sí, a 3, 6 y 12 meses con tarjeta de crédito</strong> en tratamientos desde $5,000 MXN. También aceptamos efectivo, débito y transferencia. Para ortodoncia y rehabilitación oral existe un esquema propio de pago mensual sin tarjeta: enganche y mensualidades fijas durante el tratamiento, sin intereses ni buró.
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3><button class="faq__boton" aria-expanded="false">¿Qué es una rehabilitación oral y cuándo se necesita?<span class="faq__mas" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel"><div>
+          <strong>Es el tratamiento que devuelve función y estética a una boca completa</strong>, no a un solo diente. Combina coronas, carillas, incrustaciones, implantes o prótesis según el caso. Se necesita cuando ya no puedes masticar con comodidad, cuando hay desgaste generalizado por bruxismo, cuando faltan piezas, o cuando varias restauraciones viejas fallaron al mismo tiempo.
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== UBICACIÓN ===================== -->
+<section class="seccion lugar" id="contacto">
+  <div class="env">
+    <span class="etiqueta revelar">Dónde estamos</span>
+    <h2 class="titulo-seccion revelar">Providencia, Guadalajara</h2>
+    <p class="entrada revelar" style="margin-bottom:2.5rem">
+      Atendemos a pacientes de Guadalajara, Zapopan, Tlaquepaque y Tonalá. Hay
+      estacionamiento en el edificio y la entrada es a nivel de calle.
+    </p>
+
+    <figure class="ambiente revelar">
+      <picture>
+        <source srcset="assets/img/consultorio-01.webp" type="image/webp">
+        <img src="assets/img/consultorio-01.jpg"
+             alt="Interior del consultorio: dos unidades dentales frente a ventanales con luz natural, mobiliario blanco y verde menta, techo de listones de madera y plantas."
+             width="1600" height="1200" loading="lazy" decoding="async">
+      </picture>
+      <figcaption>Imagen ilustrativa del ambiente del consultorio.</figcaption>
+    </figure>
+
+    <div class="lugar__rejilla">
+      <div class="lugar__mapa revelar">
+        <!-- Sustituir por el iframe real de Google Maps del consultorio -->
+        <p class="hueco">MAPA DE GOOGLE<br>Insertar el iframe de Google Maps<br>(ver HANDOFF.md · pendiente 4)</p>
+      </div>
+
+      <div class="datos">
+        <div class="dato revelar">
+          <div class="dato__ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div><dt>Dirección</dt>
+            <dd>Av. Américas 1254, interior 302<br>Providencia, 44630, Guadalajara, Jalisco</dd></div>
+        </div>
+
+        <div class="dato revelar">
+          <div class="dato__ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          </div>
+          <div style="flex:1"><dt>Horario</dt>
+            <dd>
+              <dl class="horario">
+                <div><dt>Lunes a viernes</dt><dd>9:00 – 19:00</dd></div>
+                <div><dt>Sábado</dt><dd>9:00 – 14:00</dd></div>
+                <div><dt>Domingo</dt><dd class="cerrado">Cerrado</dd></div>
+              </dl>
+            </dd>
+          </div>
+        </div>
+
+        <div class="dato revelar">
+          <div class="dato__ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.13c-.25.69-1.46 1.32-2 1.36-.51.04-1.16.06-1.87-.12-.43-.14-.98-.32-1.69-.62-2.97-1.28-4.91-4.27-5.06-4.47-.15-.2-1.21-1.61-1.21-3.07 0-1.46.76-2.18 1.03-2.48.27-.3.59-.37.79-.37.2 0 .39 0 .57.01.18.01.43-.07.67.51.25.6.84 2.06.91 2.21.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.12.65-.07.17-.2.74-.87.94-1.16.2-.3.4-.25.67-.15.27.1 1.71.81 2.01.96.3.15.5.22.57.35.07.12.07.72-.18 1.41Z"/></svg>
+          </div>
+          <div><dt>WhatsApp y teléfono</dt>
+            <dd><a href="https://wa.me/523312345678" data-wa="contacto" target="_blank" rel="noopener">+52 33 1234 5678</a><br>
+                <a href="mailto:contacto@consultoriodentalmayra.mx">contacto@consultoriodentalmayra.mx</a></dd></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CIERRE ===================== -->
+<section class="cierre">
+  <div class="cierre__aura" id="aura" aria-hidden="true"></div>
+  <div class="env">
+    <span class="etiqueta revelar">Siguiente paso</span>
+    <h2 class="revelar">Manda un mensaje y te decimos qué necesita tu caso</h2>
+    <p class="revelar">
+      No hace falta llenar formularios ni esperar a que alguien te devuelva la llamada.
+      Escribe por WhatsApp, cuéntanos qué te preocupa y agendamos tu valoración.
+    </p>
+    <div class="cierre__acciones revelar">
+      <a class="btn btn--wa btn--grande" href="https://wa.me/523312345678?text=Hola%2C%20quiero%20agendar%20una%20valoraci%C3%B3n%20dental" data-wa="cierre" target="_blank" rel="noopener">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.13c-.25.69-1.46 1.32-2 1.36-.51.04-1.16.06-1.87-.12-.43-.14-.98-.32-1.69-.62-2.97-1.28-4.91-4.27-5.06-4.47-.15-.2-1.21-1.61-1.21-3.07 0-1.46.76-2.18 1.03-2.48.27-.3.59-.37.79-.37.2 0 .39 0 .57.01.18.01.43-.07.67.51.25.6.84 2.06.91 2.21.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.12.65-.07.17-.2.74-.87.94-1.16.2-.3.4-.25.67-.15.27.1 1.71.81 2.01.96.3.15.5.22.57.35.07.12.07.72-.18 1.41Z"/></svg>
+        Escribir por WhatsApp
+      </a>
+      <a class="btn btn--linea btn--grande" href="tel:+523312345678" style="border-color:rgba(255,255,255,.35);color:inherit">Llamar al consultorio</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== PIE ===================== -->
+<footer class="pie">
+  <div class="env">
+    <div class="pie__rejilla">
+      <div>
+        <a class="marca" href="#inicio">
+          <svg class="marca__sig" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M20 5.5c-3.2 0-4.6 1.5-7.4 1.5-4 0-6.9 3-6.9 8 0 6.6 2.4 12.3 4.6 16.4 1.2 2.2 2.4 3.3 3.6 3.3 1.6 0 2.2-1.6 2.9-4.6.6-2.6 1.3-4.2 3.2-4.2s2.6 1.6 3.2 4.2c.7 3 1.3 4.6 2.9 4.6 1.2 0 2.4-1.1 3.6-3.3 2.2-4.1 4.6-9.8 4.6-16.4 0-5-2.9-8-6.9-8-2.8 0-4.2-1.5-7.4-1.5Z" fill="currentColor"/>
+          </svg>
+          <span>Dental Mayra<small>Guadalajara</small></span>
+        </a>
+        <p class="pie__aviso">
+          Consultorio dental en Providencia, Guadalajara. Ortodoncia, blanqueamiento
+          y rehabilitación oral desde 2012.
+        </p>
+      </div>
+
+      <div>
+        <h4>Tratamientos</h4>
+        <ul>
+          <li><a href="#servicios">Ortodoncia</a></li>
+          <li><a href="#servicios">Blanqueamiento dental</a></li>
+          <li><a href="#servicios">Rehabilitación oral</a></li>
+          <li><a href="#servicios">Carillas y coronas</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Clínica</h4>
+        <ul>
+          <li><a href="#doctora">La doctora</a></li>
+          <li><a href="#proceso">Cómo trabajamos</a></li>
+          <li><a href="#resultados">Resultados</a></li>
+          <li><a href="#preguntas">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/523312345678" data-wa="pie" target="_blank" rel="noopener">WhatsApp +52 33 1234 5678</a></li>
+          <li><a href="mailto:contacto@consultoriodentalmayra.mx">contacto@consultoriodentalmayra.mx</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=20.6897,-103.3918" target="_blank" rel="noopener">Av. Américas 1254, Providencia</a></li>
+          <li><a href="https://www.instagram.com/consultoriodentalmayra" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="pie__aviso">
+      La información de este sitio es orientativa y no sustituye una consulta odontológica.
+      Los resultados varían según cada paciente. Dra. Mayra Villaseñor Rangel,
+      cédula profesional 0000000.
+    </p>
+
+    <div class="pie__legal">
+      <span>© <span id="anio">2026</span> Consultorio Dental Mayra. Todos los derechos reservados.</span>
+      <span>Sitio desarrollado por <a href="https://matterasystems.com" target="_blank" rel="noopener">Mattera Systems</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-flota" id="waFlota" href="https://wa.me/523312345678?text=Hola%2C%20quiero%20agendar%20una%20valoraci%C3%B3n%20dental" data-wa="flotante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <span class="wa-flota__eco" aria-hidden="true"></span>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.13c-.25.69-1.46 1.32-2 1.36-.51.04-1.16.06-1.87-.12-.43-.14-.98-.32-1.69-.62-2.97-1.28-4.91-4.27-5.06-4.47-.15-.2-1.21-1.61-1.21-3.07 0-1.46.76-2.18 1.03-2.48.27-.3.59-.37.79-.37.2 0 .39 0 .57.01.18.01.43-.07.67.51.25.6.84 2.06.91 2.21.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.12.65-.07.17-.2.74-.87.94-1.16.2-.3.4-.25.67-.15.27.1 1.71.81 2.01.96.3.15.5.22.57.35.07.12.07.72-.18 1.41Z"/></svg>
+  <span>Escríbenos</span>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" defer></script>
+<script src="js/config.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

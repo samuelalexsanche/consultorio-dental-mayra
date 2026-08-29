@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://consultoriodentalmayra.mx/</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://consultoriodentalmayra.mx/assets/img/og-consultorio-dental-mayra.jpg</image:loc>
+      <image:title>Consultorio Dental Mayra, consultorio dental en Guadalajara</image:title>
+    </image:image>
+  </url>
+</urlset>

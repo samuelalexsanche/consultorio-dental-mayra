@@ -1,0 +1,16 @@
+Imágenes pendientes (ver HANDOFF.md, pendiente 1).
+Nombres exactos que espera el código:
+
+  caso-01-antes.jpg          1600 x 1000  — foto intraoral "antes"
+  caso-01-despues.jpg        1600 x 1000  — misma toma, "después"
+  doctora.jpg                1200 x 1500  — retrato vertical de la dentista
+
+LISTAS (generadas con Kie AI / nano-banana-pro, ver gen_imagenes.py):
+  og-consultorio-dental-mayra.jpg/.webp  1200 x 630   — imagen para redes
+  consultorio-01.jpg/.webp               1600 x 1200  — interior, ya puesta en #contacto
+  textura-esmalte.jpg/.webp              2000 x 1200  — capa decorativa, sin usar todavía
+
+NO generar con IA: doctora.jpg (persona real, el sitio afirma su cédula) y
+caso-01-antes/despues.jpg (fotos clínicas de paciente — publicidad engañosa).
+
+Todas en WebP además de JPG, con <picture> y loading="lazy".
