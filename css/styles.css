@@ -33,9 +33,9 @@
   --glow:radial-gradient(60% 60% at 50% 40%, rgba(63,197,222,.28), transparent 70%);
 
   /* Tipografía */
-  --display:"Fraunces","Iowan Old Style",Georgia,serif;
-  --texto:"Manrope","Helvetica Neue",Arial,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --texto:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --mono:"Spline Sans Mono",ui-monospace,"SF Mono",Menlo,monospace;
 
   /* Escala tipográfica (fluida) */
   --t-xs:clamp(.72rem,.70rem + .1vw,.78rem);
@@ -184,6 +184,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .marca{display:flex;align-items:center;gap:.7rem;font-family:var(--display);font-weight:600;
   font-size:1.16rem;letter-spacing:-.015em;line-height:1.1}
 .marca__sig{width:38px;height:38px;flex:none}
+/* El diente es esmalte: blanco en los dos temas. Con currentColor se volvía
+   negro en el tema claro y dejaba de leerse como un diente. El contorno lo
+   define sobre los fondos claros. */
+.marca__esmalte{fill:#FFFFFF;stroke:var(--agua);stroke-width:1.3;stroke-opacity:.7}
+:root[data-theme="dark"] .marca__esmalte{stroke-opacity:.3}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .marca__esmalte{stroke-opacity:.3}
+}
 .marca small{display:block;font-family:var(--mono);font-size:.58rem;letter-spacing:.22em;
   text-transform:uppercase;color:var(--agua);font-weight:500;margin-top:.15rem}
 .nav__menu{display:flex;align-items:center;gap:var(--sp-3)}
@@ -283,21 +291,34 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   gap:clamp(2rem,4vw,4.5rem);align-items:center}
 @media (max-width:960px){.hero__rejilla{grid-template-columns:1fr;gap:2.5rem}}
 
-.hero__insignia{display:inline-flex;align-items:center;gap:.65rem;padding:.45rem .95rem .45rem .55rem;max-width:100%;
-  border:1px solid var(--borde);border-radius:999px;background:color-mix(in srgb,var(--superficie) 70%,transparent);
-  backdrop-filter:blur(8px);font-size:var(--t-xs);font-weight:600;color:var(--tinta-media);
-  font-family:var(--mono);letter-spacing:.05em}
-.hero__insignia b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;
-  background:var(--agua-honda);color:#EAFBFF;font-size:.66rem;font-weight:700;letter-spacing:0}
-:root[data-theme="dark"] .hero__insignia b{background:var(--agua-clara);color:#04222A}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero__insignia b{background:var(--agua-clara);color:#04222A}}
+/* Marbete de años de práctica.
+   No es una píldora: es un marbete de ficha clínica. Una regla vertical, la
+   cifra grande en el serif de display y los datos en mono a la derecha, como
+   una anotación al margen de un expediente. */
+.marbete{display:inline-flex;align-items:stretch;gap:.95rem;margin:0;max-width:100%;
+  padding-left:1rem;border-left:1.5px solid var(--agua);position:relative}
+.marbete::before{content:"";position:absolute;left:-1.5px;top:0;width:1.5px;height:38%;
+  background:var(--menta)}
+.marbete__cifra{font-family:var(--display);font-variation-settings:"opsz" 14;
+  font-size:clamp(2.9rem,2.1rem + 2.4vw,3.9rem);font-weight:700;line-height:.82;
+  letter-spacing:-.02em;color:var(--tinta);font-feature-settings:"lnum" 1}
+.marbete__cuerpo{display:flex;flex-direction:column;justify-content:center;gap:.16rem;min-width:0}
+.marbete__unidad{font-family:var(--display);font-style:italic;font-size:var(--t-sm);
+  line-height:1;color:var(--agua)}
+.marbete__glosa{font-family:var(--mono);font-size:var(--t-xs);letter-spacing:.13em;
+  text-transform:uppercase;color:var(--tinta-media);font-weight:500}
+.marbete__lugar{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--tinta-suave)}
+@media (max-width:400px){
+  .marbete__cifra{font-size:2.6rem}
+  .marbete__lugar{display:none}
+}
 
-.hero h1{font-size:clamp(2.05rem,1.25rem + 3.1vw,3.7rem);letter-spacing:-.03em;
-  margin-block:1.4rem 0;font-weight:600}
+.hero h1{font-size:clamp(2.15rem,1.3rem + 3.2vw,3.9rem);letter-spacing:-.012em;
+  margin-block:1.6rem 0;font-weight:600;font-variation-settings:"opsz" 34}
 .hero h1 .linea{display:block;overflow:hidden}
 .hero h1 .linea > span{display:block;white-space:nowrap}
-.hero h1 em{font-style:italic;font-variation-settings:"SOFT" 60,"WONK" 1;color:var(--agua);
-  font-weight:500}
+.hero h1 em{font-style:italic;color:var(--agua);font-weight:500}
 .hero__texto{margin-top:1.5rem;font-size:var(--t-md);color:var(--tinta-media);max-width:46ch}
 .hero__acciones{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
 .hero__pie{display:flex;flex-wrap:wrap;gap:1.6rem;margin-top:2.6rem;padding-top:1.6rem;

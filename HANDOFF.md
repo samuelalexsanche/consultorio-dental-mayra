@@ -27,7 +27,7 @@ No es un template dental genérico. Las decisiones y por qué:
 | Motivo estructural | **Arcos dentales**, no líneas rectas | Los separadores entre secciones son la curva de una arcada; el hero es una arcada superior de 14 piezas con brackets; la línea del proceso es una curva que pasa por cada nodo |
 | Numeración de pasos | **Notación FDI** (11, 12, 13, 14 / 21 / 36) | Es la numeración real de las piezas dentales en la ficha clínica. Reemplaza al genérico 01/02/03 y transmite oficio |
 | Paleta | Porcelana `#F7FAFB`, tinta teal `#0B2B33`, cian clínico `#0E9BB5`, profundo `#073C4A`, menta `#7FD9C0` | Blancos con sesgo cian (nunca gris puro) = higiene y luz sobre esmalte. Verde WhatsApp `#25D366` reservado **solo** para los botones de WhatsApp |
-| Tipografía | **Fraunces** (display serif variable) + **Manrope** (texto) + **IBM Plex Mono** (etiquetas, datos, FDI) | El serif suave carga la confianza de los 14 años; el sans redondeado la cercanía; el mono la precisión clínica |
+| Tipografía | **Bodoni Moda** (didone variable, display) + **Archivo** (texto) + **Spline Sans Mono** (etiquetas, datos, FDI) | El didone de alto contraste da precisión y lujo editorial sin caer en los serif suaves de plantilla; el grotesco de Archivo aguanta bien el texto corrido; el mono marca los datos clínicos. Bodoni es variable en `opsz`: a tamaños grandes hay que **bajar** el eje óptico (34 en el h1, 14 en la cifra del marbete) o los finos se vuelven capilares y desaparecen |
 | Tema | Claro y oscuro completos, por tokens | Definidos en `:root`, `@media (prefers-color-scheme: dark)` con guarda `:not([data-theme="light"])`, y `:root[data-theme="dark"]` |
 
 ### Animaciones ya implementadas (anime.js 3.2.2)
@@ -260,6 +260,8 @@ Lo que falta y **vale más que cualquier cosa del código** para un negocio loca
 3. **Autohospedar anime.js** (opcional, mejora el LCP y elimina una dependencia
    externa): `npm pack animejs@3.2.2`, copiar `lib/anime.min.js` a `js/` y cambiar el
    `<script src>`. Son 17 KB.
+3b. **Autohospedar las fuentes**: `@fontsource-variable/bodoni-moda`,
+   `@fontsource-variable/archivo` y `@fontsource-variable/spline-sans-mono`.
 4. **Autohospedar las fuentes** con `@fontsource-variable/fraunces`, `@fontsource/manrope`
    y `@fontsource/ibm-plex-mono` si se quiere eliminar la petición a Google Fonts
    (relevante para GDPR y para el TTFB desde México).
