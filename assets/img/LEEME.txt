@@ -1,22 +1,24 @@
 Imágenes pendientes (ver HANDOFF.md, pendiente 1).
 Nombres exactos que espera el código:
 
-  doctora.jpg                1200 x 1500  — retrato vertical de la dentista
-                             NO se genera con IA: es una persona real y el sitio
-                             afirma su cédula. Pedir foto con bata, fondo claro y liso.
+(ninguna: todos los huecos de la página están cubiertos con imágenes de demo)
 
-LISTAS (generadas con Kie AI / nano-banana-pro, ver gen_imagenes.py):
+LISTAS (generadas con Kie AI / nano-banana-pro):
   og-consultorio-dental-mayra.jpg/.webp  1200 x 630   — imagen para redes
   consultorio-01.jpg/.webp               1600 x 1200  — interior, ya puesta en #contacto
   textura-esmalte.jpg/.webp              2000 x 1200  — capa decorativa, sin usar todavía
-  caso-01-antes.jpg/.webp                1600 x 1000  — ILUSTRACIÓN de arcada apiñada
-  caso-01-despues.jpg/.webp              1600 x 1000  — ILUSTRACIÓN de arcada alineada
-                                         (ver gen_comparador.py; el par está etiquetado
-                                         en la página como ilustrativo. Sustituir por
-                                         fotos de un caso propio con consentimiento
-                                         firmado en cuanto la clienta las entregue.)
+  caso-01-antes.jpg/.webp                1600 x 1000  — intraoral "antes" (gen_comparador.py)
+  caso-01-despues.jpg/.webp              1600 x 1000  — intraoral "después" (gen_comparador.py)
+  doctora.jpg/.webp                      1200 x 1500  — retrato (gen_retrato.py)
 
-NO generar con IA como si fueran reales: el retrato de la doctora y cualquier
-antes/después fotorrealista de paciente (publicidad engañosa).
+SUSTITUIR ANTES DE PUBLICAR EN EL DOMINIO REAL
+  doctora.jpg          → foto real de la doctora. La sección lleva su nombre y dos
+                         cédulas profesionales debajo; una cara generada ahí es una
+                         identidad fabricada de una profesional de la salud.
+  caso-01-antes/despues → fotos de un caso propio con consentimiento firmado del
+                         paciente. Un antes/después generado con IA presentado como
+                         resultado real es publicidad engañosa.
+  El comparador lleva la nota "Imagen de demostración" y el sitio va con noindex
+  justamente por esto. Al sustituirlas, quitar la nota y el noindex.
 
 Todas en WebP además de JPG, con <picture> y loading="lazy".

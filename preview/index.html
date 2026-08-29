@@ -538,9 +538,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:900px){.lugar__rejilla{grid-template-columns:1fr}}
 .lugar__mapa{position:relative;border-radius:var(--radio-lg);overflow:hidden;min-height:380px;
   border:1px solid var(--borde);background:var(--superficie-2);display:grid;place-items:center}
-/* Marcador de contenido pendiente (mapa, fotos). Se borra al poner el contenido real. */
-.hueco{padding:2rem;text-align:center;color:var(--tinta-suave);font-family:var(--mono);
-  font-size:var(--t-xs);letter-spacing:.1em;line-height:1.9}
 .lugar__mapa iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
 /* Foto de ambiente del consultorio, sobre la rejilla de mapa + datos */
 .ambiente{margin:0 0 clamp(2rem,4vw,3rem)}
@@ -1019,7 +1016,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <picture>
           <source srcset="../assets/img/caso-01-antes.webp" type="image/webp">
           <img src="../assets/img/caso-01-antes.jpg"
-               alt="Ilustración de arcadas dentales con apiñamiento: varios incisivos rotados y borde incisal irregular."
+               alt="Fotografía intraoral antes del tratamiento: incisivos superiores e inferiores apiñados y rotados, con el borde incisal irregular."
                width="1600" height="1000" loading="lazy" decoding="async">
         </picture>
       </div>
@@ -1027,7 +1024,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <picture>
           <source srcset="../assets/img/caso-01-despues.webp" type="image/webp">
           <img src="../assets/img/caso-01-despues.jpg"
-               alt="Ilustración de las mismas arcadas ya alineadas tras el tratamiento de ortodoncia, con el borde incisal simétrico."
+               alt="Fotografía intraoral de la misma boca después del tratamiento: dientes alineados, sin rotaciones y con el borde incisal simétrico."
                width="1600" height="1000" loading="lazy" decoding="async">
         </picture>
       </div>
@@ -1035,7 +1032,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <span class="comparador__marca comparador__marca--b">Después · 18 meses</span>
       <div class="comparador__tirador" id="tirador" role="slider" tabindex="0"
            aria-label="Comparar antes y después" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
-      <figcaption class="comparador__nota">Ilustración con fines explicativos. No corresponde a un paciente del consultorio.</figcaption>
+      <figcaption class="comparador__nota">Imagen de demostración. No corresponde a un paciente del consultorio.</figcaption>
     </figure>
   </div>
 </section>
@@ -1044,7 +1041,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <section class="seccion doctora" id="doctora">
   <div class="env doctora__rejilla">
     <div class="doctora__retrato revelar">
-      <div class="doctora__vacio">RETRATO DE LA DOCTORA<br>assets/img/doctora.jpg<br>1200 × 1500 px</div>
+      <!-- DEMO: retrato de archivo. Sustituir por la foto real de la doctora antes de publicar. -->
+      <picture>
+        <source srcset="../assets/img/doctora.webp" type="image/webp">
+        <img src="../assets/img/doctora.jpg"
+             alt="Retrato de la dentista con bata blanca sobre filipina color menta, sobre fondo claro."
+             width="1200" height="1500" loading="lazy" decoding="async">
+      </picture>
     </div>
     <div>
       <span class="etiqueta revelar">Quién te atiende</span>
@@ -1200,8 +1203,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
     <div class="lugar__rejilla">
       <div class="lugar__mapa revelar">
-        <!-- Sustituir por el iframe real de Google Maps del consultorio -->
-        <p class="hueco">MAPA DE GOOGLE<br>Insertar el iframe de Google Maps<br>(ver HANDOFF.md · pendiente 4)</p>
+        <!-- PLACEHOLDER: apunta al centro de Guadalajara, no a la dirección real.
+             Sustituir por el iframe del consultorio (Google Maps → Compartir →
+             Insertar un mapa → HTML). Ver HANDOFF.md · pendiente 4. -->
+        <iframe src="https://maps.google.com/maps?q=20.6897,-103.3918&amp;z=14&amp;hl=es&amp;output=embed"
+                title="Mapa de Guadalajara, Jalisco (ubicación de referencia)"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen></iframe>
       </div>
 
       <div class="datos">

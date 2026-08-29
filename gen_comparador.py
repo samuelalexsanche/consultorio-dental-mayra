@@ -1,11 +1,11 @@
 """
-Genera el par ANTES / DESPUÉS del comparador como ILUSTRACIÓN clínica, no como
-fotografía de paciente.
+Genera el par ANTES / DESPUÉS del comparador como fotografía intraoral realista.
 
-Por qué ilustración y no foto: un antes/después fotorrealista generado con IA y
-presentado como resultado real es publicidad engañosa (ver HANDOFF.md, pendiente 1).
-La ilustración se etiqueta como tal en la página y se sustituye en cuanto la clienta
-entregue fotos de un caso propio con consentimiento firmado.
+IMPORTANTE: son imágenes de demostración, NO un caso del consultorio. La página las
+etiqueta como tal. Antes de publicar en el dominio real hay que sustituirlas por
+fotos de un caso propio con consentimiento firmado del paciente: presentar un
+antes/después generado con IA como resultado real es publicidad engañosa
+(ver HANDOFF.md, pendiente 1).
 
 El "después" se genera usando el "antes" como imagen de referencia para que el
 encuadre, el estilo y los colores sean idénticos y el slider funcione.
@@ -21,29 +21,33 @@ OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "img")
 HEADERS = {"Content-Type": "application/json", "Authorization": f"Bearer {API_KEY}"}
 
 ESTILO = (
-    "Flat vector medical illustration, clean editorial style, thin confident outlines, "
-    "no shading noise, centered frontal view of a full set of upper and lower dental "
-    "arches on a plain background. Palette: porcelain white teeth, pale cyan background "
-    "(#EAF4F6), soft mint accents (#7FD9C0), deep teal outlines (#0B2B33). "
-    "No gums detail beyond a simple soft pink band, no face, no lips, no person, "
-    "no text, no labels, no watermarks, no logos. Symmetrical composition, generous "
-    "margins, the arches occupy the central 70 percent of the frame."
+    "Clinical intraoral dental photography, close-up frontal retracted view of upper and "
+    "lower front teeth in occlusion, professional dental cheek retractors visible at the "
+    "edges, healthy pink gums, sharp focus, even ring-flash lighting typical of a dental "
+    "clinic, neutral dark background behind the mouth, no face visible above the upper lip "
+    "or below the lower lip, no text, no watermark, no logo. Photorealistic, high detail, "
+    "clinical documentation style."
 )
 
 ANTES = ESTILO + (
-    " Show the teeth with MODERATE CROWDING: several incisors visibly rotated and "
-    "overlapping each other, an uneven and irregular incisal edge line, one lateral "
-    "incisor pushed behind the arch. Clearly misaligned but realistic, not exaggerated."
+    " BEFORE orthodontic treatment: SEVERE and obvious crowding. The upper central and "
+    "lateral incisors are strongly rotated and overlapping each other, one lateral incisor "
+    "is clearly pushed behind the arch line, the lower incisors are visibly crooked and "
+    "imbricated, the incisal edge line is jagged and asymmetric. Teeth slightly dull and "
+    "yellowish with visible plaque near the gumline. The misalignment must be immediately "
+    "obvious at a glance."
 )
 
 DESPUES = (
-    "Use the attached image as an EXACT reference: same illustration style, same line "
-    "weight, same colors, same background, same camera framing, same arch size and "
-    "position in the frame. Change ONLY the alignment of the teeth. "
+    "Use the attached image as an EXACT reference for the mouth: same patient, same lips "
+    "and gums, same retractors, same camera distance and angle, same lighting, same "
+    "background, same framing and crop. Change ONLY the teeth. "
     + ESTILO +
-    " Show the SAME dental arches now PERFECTLY ALIGNED after orthodontic treatment: "
-    "teeth evenly spaced, no rotations, no overlaps, a smooth symmetrical incisal edge "
-    "curve. Everything else identical to the reference image."
+    " AFTER orthodontic treatment: the SAME mouth with the teeth now perfectly straight and "
+    "aligned. Upper and lower incisors evenly spaced with no rotations and no overlaps, a "
+    "smooth symmetrical incisal curve, clean healthy enamel, natural bright white shade. "
+    "The contrast against the reference image must be dramatic and obvious. Everything "
+    "else identical to the reference image."
 )
 
 
