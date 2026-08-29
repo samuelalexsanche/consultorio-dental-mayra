@@ -454,6 +454,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 .comparador__vacio{position:absolute;inset:0;display:grid;place-items:center;text-align:center;
   padding:2rem;color:var(--tinta-suave);font-family:var(--mono);font-size:var(--t-xs);letter-spacing:.1em}
+/* Aviso de que el par antes/despues es una ilustracion, no un paciente real */
+.comparador__nota{position:absolute;left:0;right:0;bottom:0;padding:.6rem 1rem;text-align:center;
+  font-family:var(--mono);font-size:var(--t-xs);letter-spacing:.06em;line-height:1.5;
+  color:var(--tinta-suave);background:color-mix(in srgb,var(--superficie) 88%,transparent);
+  backdrop-filter:blur(8px);border-top:1px solid var(--borde);pointer-events:none}
 
 .resultados__rejilla{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
   gap:clamp(2rem,4vw,4rem);align-items:center}
@@ -997,12 +1002,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <section class="seccion resultados" id="resultados">
   <div class="env resultados__rejilla">
     <div>
-      <span class="etiqueta revelar">Resultados reales</span>
+      <span class="etiqueta revelar">Qué corrige la ortodoncia</span>
       <h2 class="titulo-seccion revelar">Arrastra para ver el antes y el después</h2>
       <p class="entrada revelar">
-        Caso de ortodoncia con apiñamiento moderado en arcada superior e inferior,
-        resuelto en 18 meses con brackets autoligables. Las fotografías se toman con
-        el mismo encuadre, la misma luz y sin retoque.
+        Así se corrige un apiñamiento moderado en arcada superior e inferior: los
+        dientes rotados se alinean y el borde incisal recupera su curva. Un caso
+        así se resuelve en unos 18 meses con brackets autoligables.
       </p>
       <div class="hero__acciones revelar">
         <a class="btn btn--solido" href="https://wa.me/523312345678?text=Hola%2C%20quiero%20ver%20si%20mi%20caso%20es%20parecido" data-wa="resultados" target="_blank" rel="noopener">Consultar mi caso</a>
@@ -1011,16 +1016,26 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
     <figure class="comparador revelar" id="comparador" style="margin:0">
       <div class="comparador__cara comparador__cara--antes">
-        <div class="comparador__vacio">FOTO «ANTES»<br>assets/img/caso-01-antes.jpg<br>1600 × 1000 px</div>
+        <picture>
+          <source srcset="../assets/img/caso-01-antes.webp" type="image/webp">
+          <img src="../assets/img/caso-01-antes.jpg"
+               alt="Ilustración de arcadas dentales con apiñamiento: varios incisivos rotados y borde incisal irregular."
+               width="1600" height="1000" loading="lazy" decoding="async">
+        </picture>
       </div>
       <div class="comparador__cara comparador__cara--despues">
-        <div class="comparador__vacio" style="background:var(--menta-clara)">FOTO «DESPUÉS»<br>assets/img/caso-01-despues.jpg<br>1600 × 1000 px</div>
+        <picture>
+          <source srcset="../assets/img/caso-01-despues.webp" type="image/webp">
+          <img src="../assets/img/caso-01-despues.jpg"
+               alt="Ilustración de las mismas arcadas ya alineadas tras el tratamiento de ortodoncia, con el borde incisal simétrico."
+               width="1600" height="1000" loading="lazy" decoding="async">
+        </picture>
       </div>
       <span class="comparador__marca comparador__marca--a">Antes</span>
       <span class="comparador__marca comparador__marca--b">Después · 18 meses</span>
       <div class="comparador__tirador" id="tirador" role="slider" tabindex="0"
            aria-label="Comparar antes y después" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
-      <figcaption class="solo-lectores">Comparación fotográfica de un caso de ortodoncia antes y después de 18 meses de tratamiento.</figcaption>
+      <figcaption class="comparador__nota">Ilustración con fines explicativos. No corresponde a un paciente del consultorio.</figcaption>
     </figure>
   </div>
 </section>

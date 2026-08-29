@@ -393,6 +393,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 .comparador__vacio{position:absolute;inset:0;display:grid;place-items:center;text-align:center;
   padding:2rem;color:var(--tinta-suave);font-family:var(--mono);font-size:var(--t-xs);letter-spacing:.1em}
+/* Aviso de que el par antes/despues es una ilustracion, no un paciente real */
+.comparador__nota{position:absolute;left:0;right:0;bottom:0;padding:.6rem 1rem;text-align:center;
+  font-family:var(--mono);font-size:var(--t-xs);letter-spacing:.06em;line-height:1.5;
+  color:var(--tinta-suave);background:color-mix(in srgb,var(--superficie) 88%,transparent);
+  backdrop-filter:blur(8px);border-top:1px solid var(--borde);pointer-events:none}
 
 .resultados__rejilla{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
   gap:clamp(2rem,4vw,4rem);align-items:center}
