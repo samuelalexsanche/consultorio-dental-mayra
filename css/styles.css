@@ -220,6 +220,52 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;
   padding-block:9rem 4rem;overflow:hidden;isolation:isolate}
 .hero__fondo{position:absolute;inset:-10%;z-index:-3;background:var(--glow);filter:blur(10px)}
+/* Capa fotográfica del hero: da profundidad detrás de la arcada y se mueve
+   más lento que el contenido (data-parallax en el marcado). */
+.hero__foto{position:absolute;inset:-170px 0;z-index:-4;opacity:.26;will-change:transform;
+  background-position:center;background-size:cover;background-repeat:no-repeat;
+  background-image:url("../assets/img/fondo-hero.jpg");
+  background-image:image-set(url("../assets/img/fondo-hero.webp") type("image/webp"),
+                            url("../assets/img/fondo-hero.jpg") type("image/jpeg"));
+  -webkit-mask-image:radial-gradient(72% 62% at 62% 44%,#000 30%,transparent 78%);
+  mask-image:radial-gradient(72% 62% at 62% 44%,#000 30%,transparent 78%)}
+:root[data-theme="dark"] .hero__foto{opacity:.5}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero__foto{opacity:.5}}
+
+/* Capas de parallax de sección. El padre necesita overflow:hidden — .proceso y
+   .cierre ya lo tienen. */
+.capa{position:absolute;inset:-170px 0;z-index:0;pointer-events:none;will-change:transform;
+  background-position:center;background-size:cover;background-repeat:no-repeat}
+.capa--clara{opacity:.55;
+  background-image:url("../assets/img/parallax-proceso.jpg");
+  background-image:image-set(url("../assets/img/parallax-proceso.webp") type("image/webp"),
+                            url("../assets/img/parallax-proceso.jpg") type("image/jpeg"));
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 26%,#000 74%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 26%,#000 74%,transparent)}
+.capa--oscura{opacity:.42;
+  background-image:url("../assets/img/parallax-cierre.jpg");
+  background-image:image-set(url("../assets/img/parallax-cierre.webp") type("image/webp"),
+                            url("../assets/img/parallax-cierre.jpg") type("image/jpeg"));
+  mix-blend-mode:screen}
+/* En oscuro la sección "proceso" tiene fondo profundo: la capa clara la dejaba
+   lavada. Ahí se usa la capa oscura, que sí suma profundidad. */
+:root[data-theme="dark"] .capa--clara,
+:root[data-theme="dark"] .capa--clara{opacity:.34;mix-blend-mode:screen;
+  background-image:url("../assets/img/parallax-cierre.jpg");
+  background-image:image-set(url("../assets/img/parallax-cierre.webp") type("image/webp"),
+                            url("../assets/img/parallax-cierre.jpg") type("image/jpeg"))}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .capa--clara{opacity:.34;mix-blend-mode:screen;
+    background-image:url("../assets/img/parallax-cierre.jpg");
+    background-image:image-set(url("../assets/img/parallax-cierre.webp") type("image/webp"),
+                              url("../assets/img/parallax-cierre.jpg") type("image/jpeg"))}
+}
+/* El contenido de esas secciones debe quedar por encima de su capa */
+.proceso > .env,.cierre > .env{position:relative;z-index:1}
+@media (prefers-reduced-motion:reduce){
+  .hero__foto,.capa{transform:none !important}
+}
+
 .hero__malla{position:absolute;inset:0;z-index:-3;opacity:.5;
   background:
     radial-gradient(46% 40% at 78% 18%,rgba(127,217,192,.30),transparent 65%),
@@ -267,6 +313,18 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .arcada__diente{transition:transform .6s var(--ease),opacity .6s ease;transform-box:fill-box;transform-origin:center}
 .arcada__brillo{mix-blend-mode:soft-light;opacity:.9}
 .arcada__anillo{transform-origin:center;transform-box:view-box}
+/* El bracket se anima con scale: necesita su propia caja de transformación,
+   si no anime.js lo escala respecto al viewBox y sale volando. */
+.bracket{transform-box:fill-box;transform-origin:center}
+/* Contorno de la corona: en claro el esmalte blanco se pierde contra el fondo
+   del hero, así que el trazo pesa más; en oscuro basta un contorno tenue. */
+.arcada__corona{stroke-width:1.7;stroke-opacity:.8}
+:root[data-theme="dark"] .arcada__corona{stroke-width:1.1;stroke-opacity:.45}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .arcada__corona{stroke-width:1.1;stroke-opacity:.45}
+}
+/* Sin mix-blend-mode: sobre el hero oscuro la encía se volvía gris parda. */
+#encia{opacity:.55}
 
 /* Chips flotantes sobre la arcada */
 .chip{position:absolute;display:flex;align-items:center;gap:.55rem;padding:.55rem .95rem;

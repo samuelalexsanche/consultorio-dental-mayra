@@ -7,6 +7,9 @@
 
   var quieto = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var tieneAnime = typeof window.anime === "function";
+  /* Sin motion (por preferencia del sistema o porque anime.js no cargó) los
+     elementos deben nacer ya visibles, no en su estado inicial de animación. */
+  var estatico = quieto || !tieneAnime;
   var NS = "http://www.w3.org/2000/svg";
   var $  = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
@@ -33,6 +36,24 @@
            "C" + (-w * 0.3) + " " + (h * 0.58) + "," + (-hw) + " " + (h * 0.44) + "," + (-hw) + " " + (h * 0.12) + "Z";
   }
 
+  /* Curva suave (Catmull-Rom → Bézier) que pasa EXACTAMENTE por cada punto.
+     Se usa para la encía y, sobre todo, para el arco de ortodoncia: así el
+     alambre atraviesa el centro de cada bracket en lugar de flotar aparte. */
+  function suavizar(pts) {
+    if (pts.length < 2) return "";
+    var d = "M" + pts[0].x.toFixed(1) + " " + pts[0].y.toFixed(1);
+    for (var i = 0; i < pts.length - 1; i++) {
+      var p0 = pts[i - 1] || pts[i], p1 = pts[i],
+          p2 = pts[i + 1], p3 = pts[i + 2] || pts[i + 1];
+      var c1x = p1.x + (p2.x - p0.x) / 6, c1y = p1.y + (p2.y - p0.y) / 6;
+      var c2x = p2.x - (p3.x - p1.x) / 6, c2y = p2.y - (p3.y - p1.y) / 6;
+      d += "C" + c1x.toFixed(1) + " " + c1y.toFixed(1) + "," +
+                 c2x.toFixed(1) + " " + c2y.toFixed(1) + "," +
+                 p2.x.toFixed(1) + " " + p2.y.toFixed(1);
+    }
+    return d;
+  }
+
   function construirArcada() {
     var caja = $("#arcada");
     if (!caja) return null;
@@ -42,7 +63,6 @@
     svg.setAttribute("role", "presentation");
     svg.setAttribute("focusable", "false");
 
-    /* Definiciones: degradados del esmalte */
     var defs = document.createElementNS(NS, "defs");
     defs.innerHTML =
       '<linearGradient id="gEsmalte" x1="0" y1="0" x2="0" y2="1">' +
@@ -53,6 +73,15 @@
       '<linearGradient id="gBrillo" x1="0" y1="0" x2="1" y2="1">' +
         '<stop offset="0%" stop-color="#FFFFFF" stop-opacity=".95"/>' +
         '<stop offset="60%" stop-color="#FFFFFF" stop-opacity="0"/>' +
+      '</linearGradient>' +
+      '<linearGradient id="gEncia" x1="0" y1="0" x2="0" y2="1">' +
+        '<stop offset="0%" stop-color="#F7C3C6"/>' +
+        '<stop offset="100%" stop-color="#DE8E97"/>' +
+      '</linearGradient>' +
+      '<linearGradient id="gAlambre" x1="0" y1="0" x2="1" y2="0">' +
+        '<stop offset="0%" stop-color="#7FD9C0"/>' +
+        '<stop offset="50%" stop-color="#CFF5EA"/>' +
+        '<stop offset="100%" stop-color="#7FD9C0"/>' +
       '</linearGradient>' +
       '<radialGradient id="gAura" cx="50%" cy="42%" r="55%">' +
         '<stop offset="0%" stop-color="#7FD9C0" stop-opacity=".40"/>' +
@@ -85,87 +114,150 @@
     });
     svg.appendChild(anillos);
 
-    /* Arco guía de la arcada (la curva que se dibuja al cargar) */
+    /* ---- Geometría común: 14 piezas sobre una elipse ---- */
+    var N = 14, cx = 280, cy = 232, rx = 188, ry = 168;
+    var info = [];
+    for (var i = 0; i < N; i++) {
+      var t = (i / (N - 1)) * 2 - 1;                 /* -1 .. 1 */
+      var ang = t * 1.42;                            /* ±81° */
+      var central = 1 - Math.abs(t);                 /* 1 al centro, 0 en molares */
+      info.push({
+        t: t, ang: ang,
+        x: cx + rx * Math.sin(ang),
+        y: cy - ry * Math.cos(ang),
+        w: 26 + (1 - central) * 20,                  /* molares más anchos */
+        h: 62 - (1 - central) * 20,                  /* incisivos más altos */
+        /* bracket en todas menos los dos molares de cada extremo */
+        conBracket: Math.abs(t) < 0.86
+      });
+    }
+
+    /* ---- Encía: banda por detrás de las coronas ---- */
+    var encia = document.createElementNS(NS, "path");
+    encia.setAttribute("id", "encia");
+    encia.setAttribute("d", suavizar(info.map(function (p) {
+      return { x: cx + (rx + 20) * Math.sin(p.ang), y: cy - (ry + 20) * Math.cos(p.ang) };
+    })));
+    encia.setAttribute("fill", "none");
+    encia.setAttribute("stroke", "url(#gEncia)");
+    encia.setAttribute("stroke-width", "44");
+    encia.setAttribute("stroke-linecap", "round");
+    encia.setAttribute("opacity", estatico ? ".5" : "0");
+    svg.appendChild(encia);
+
+    /* Arco guía: eco concéntrico de la propia arcada, un par de radios más
+       afuera. Antes era una U invertida que no coincidía con nada y leía como
+       un círculo suelto. */
     var guia = document.createElementNS(NS, "path");
     guia.setAttribute("id", "guiaArcada");
-    guia.setAttribute("d", "M92 168C92 300 168 392 280 392S468 300 468 168");
+    guia.setAttribute("d", suavizar(info.map(function (p) {
+      return { x: cx + (rx + 58) * Math.sin(p.ang), y: cy - (ry + 58) * Math.cos(p.ang) };
+    })));
     guia.setAttribute("fill", "none");
     guia.setAttribute("stroke", "var(--agua)");
     guia.setAttribute("stroke-width", "1.6");
     guia.setAttribute("stroke-linecap", "round");
-    guia.setAttribute("opacity", ".32");
+    guia.setAttribute("opacity", ".22");
     svg.appendChild(guia);
 
-    /* Dientes sobre una elipse — 14 piezas, arcada superior */
+    /* ---- Dientes ---- */
     var grupo = document.createElementNS(NS, "g");
     grupo.setAttribute("id", "dientes");
-    var N = 14, cx = 280, cy = 232, rx = 188, ry = 168;
     var piezas = [];
-    for (var i = 0; i < N; i++) {
-      var t = (i / (N - 1)) * 2 - 1;                 // -1 .. 1
-      var ang = t * 1.42;                            // ±81°
-      var x = cx + rx * Math.sin(ang);
-      var y = cy - ry * Math.cos(ang);
-      var central = 1 - Math.abs(t);                 // 1 al centro, 0 en molares
-      var w = 26 + (1 - central) * 20;               // molares más anchos
-      var h = 62 - (1 - central) * 20;               // incisivos más altos
+    info.forEach(function (p) {
       /* Grupo exterior: posición fija por atributo transform.
-         Grupo interior: el que anima anime.js con transform CSS —
-         si se animara el exterior, el CSS pisaría el atributo y
-         todas las piezas se apilarían en el origen. */
+         Grupo interior: el que anima anime.js con transform CSS — si se animara
+         el exterior, el CSS pisaría el atributo y todo se apilaría en el origen. */
       var ext = document.createElementNS(NS, "g");
-      ext.setAttribute("transform", "translate(" + x.toFixed(1) + "," + y.toFixed(1) + ") rotate(" + (ang * 180 / Math.PI).toFixed(1) + ")");
+      ext.setAttribute("transform", "translate(" + p.x.toFixed(1) + "," + p.y.toFixed(1) +
+                                    ") rotate(" + (p.ang * 180 / Math.PI).toFixed(1) + ")");
       var g = document.createElementNS(NS, "g");
       g.setAttribute("class", "arcada__diente");
-      g.setAttribute("opacity", quieto ? "1" : "0");
+      g.setAttribute("opacity", estatico ? "1" : "0");
       ext.appendChild(g);
 
-      var p = document.createElementNS(NS, "path");
-      p.setAttribute("d", caminoDiente(w, h));
-      p.setAttribute("fill", "url(#gEsmalte)");
-      p.setAttribute("stroke", "var(--agua)");
-      p.setAttribute("stroke-width", "1.1");
-      p.setAttribute("stroke-opacity", ".45");
-      g.appendChild(p);
+      var d = document.createElementNS(NS, "path");
+      d.setAttribute("class", "arcada__corona");
+      d.setAttribute("d", caminoDiente(p.w, p.h));
+      d.setAttribute("fill", "url(#gEsmalte)");
+      d.setAttribute("stroke", "var(--agua)");
+      g.appendChild(d);
 
-      /* Reflejo de esmalte */
       var b = document.createElementNS(NS, "path");
       b.setAttribute("class", "arcada__brillo");
-      b.setAttribute("d", caminoDiente(w * 0.5, h * 0.55));
-      b.setAttribute("transform", "translate(" + (-w * 0.16) + "," + (-h * 0.1) + ")");
+      b.setAttribute("d", caminoDiente(p.w * 0.5, p.h * 0.55));
+      b.setAttribute("transform", "translate(" + (-p.w * 0.16) + "," + (-p.h * 0.1) + ")");
       b.setAttribute("fill", "url(#gBrillo)");
       g.appendChild(b);
 
-      /* Bracket en las 6 piezas anteriores — el detalle de ortodoncia */
-      if (Math.abs(t) < 0.45) {
-        var br = document.createElementNS(NS, "rect");
-        br.setAttribute("class", "bracket");
-        br.setAttribute("x", (-5.5).toString()); br.setAttribute("y", (-6).toString());
-        br.setAttribute("width", "11"); br.setAttribute("height", "12"); br.setAttribute("rx", "3");
-        br.setAttribute("fill", "none");
-        br.setAttribute("stroke", "var(--agua)");
-        br.setAttribute("stroke-width", "1.6");
-        br.setAttribute("opacity", quieto ? ".85" : "0");
-        g.appendChild(br);
-      }
-
       grupo.appendChild(ext);
       piezas.push(g);
-    }
+    });
     svg.appendChild(grupo);
 
-    /* Arco de ortodoncia que une los brackets */
+    /* ---- Arco de ortodoncia: pasa por el centro de cada bracket ----
+       Se calcula con los mismos puntos que los brackets, así que el alambre
+       atraviesa las piezas en lugar de flotar por encima. */
+    var conBr = info.filter(function (p) { return p.conBracket; });
     var arco = document.createElementNS(NS, "path");
     arco.setAttribute("id", "arcoOrto");
-    arco.setAttribute("d", "M196 92C232 74 328 74 364 92");
+    arco.setAttribute("d", suavizar(conBr.map(function (p) { return { x: p.x, y: p.y }; })));
     arco.setAttribute("fill", "none");
-    arco.setAttribute("stroke", "var(--menta)");
-    arco.setAttribute("stroke-width", "2.4");
+    arco.setAttribute("stroke", "url(#gAlambre)");
+    arco.setAttribute("stroke-width", "3");
     arco.setAttribute("stroke-linecap", "round");
     svg.appendChild(arco);
 
+    /* ---- Brackets: encima del alambre, girados con su pieza ---- */
+    var grupoBr = document.createElementNS(NS, "g");
+    grupoBr.setAttribute("id", "brackets");
+    conBr.forEach(function (p) {
+      var ext = document.createElementNS(NS, "g");
+      ext.setAttribute("transform", "translate(" + p.x.toFixed(1) + "," + p.y.toFixed(1) +
+                                    ") rotate(" + (p.ang * 180 / Math.PI).toFixed(1) + ")");
+      var g = document.createElementNS(NS, "g");
+      g.setAttribute("class", "bracket");
+      g.setAttribute("opacity", estatico ? "1" : "0");
+      ext.appendChild(g);
+
+      /* Cuerpo del bracket */
+      var cuerpo = document.createElementNS(NS, "rect");
+      cuerpo.setAttribute("x", "-6.5"); cuerpo.setAttribute("y", "-6.5");
+      cuerpo.setAttribute("width", "13"); cuerpo.setAttribute("height", "13");
+      cuerpo.setAttribute("rx", "3.5");
+      cuerpo.setAttribute("fill", "var(--superficie)");
+      cuerpo.setAttribute("fill-opacity", ".55");
+      cuerpo.setAttribute("stroke", "var(--agua)");
+      cuerpo.setAttribute("stroke-width", "1.6");
+      g.appendChild(cuerpo);
+
+      /* Aletas laterales, que es lo que hace legible un bracket */
+      [-8.5, 8.5].forEach(function (ax) {
+        var a = document.createElementNS(NS, "rect");
+        a.setAttribute("x", (ax - 1.6).toFixed(1)); a.setAttribute("y", "-4.5");
+        a.setAttribute("width", "3.2"); a.setAttribute("height", "9");
+        a.setAttribute("rx", "1.4");
+        a.setAttribute("fill", "var(--agua)");
+        a.setAttribute("opacity", ".75");
+        g.appendChild(a);
+      });
+
+      /* Ranura horizontal por donde corre el alambre */
+      var ranura = document.createElementNS(NS, "rect");
+      ranura.setAttribute("x", "-6.5"); ranura.setAttribute("y", "-1.4");
+      ranura.setAttribute("width", "13"); ranura.setAttribute("height", "2.8");
+      ranura.setAttribute("rx", "1.4");
+      ranura.setAttribute("fill", "var(--menta)");
+      ranura.setAttribute("opacity", ".9");
+      g.appendChild(ranura);
+
+      grupoBr.appendChild(ext);
+    });
+    svg.appendChild(grupoBr);
+
     caja.insertBefore(svg, caja.firstChild);
-    return { svg: svg, piezas: piezas, guia: guia, arco: arco, anillos: anillos };
+    return { svg: svg, piezas: piezas, guia: guia, arco: arco,
+             anillos: anillos, encia: encia };
   }
 
   /* ---------- 3. Secuencia de entrada ---------- */
@@ -173,9 +265,10 @@
     var lineas = $$(".hero h1 .linea > span");
     var sueltos = $$("[data-anim]");
 
-    if (quieto || !tieneAnime) {
+    if (estatico) {
       lineas.forEach(function (l) { l.style.transform = "none"; l.style.opacity = 1; });
       sueltos.forEach(function (e) { e.style.opacity = 1; });
+      $$(".chip").forEach(function (c) { c.style.opacity = 1; });
       return;
     }
 
@@ -201,13 +294,18 @@
     }, "-=700");
 
     if (arcada) {
-      /* La curva de la arcada se dibuja trazo a trazo */
+      /* Se dibuja en el orden en que se coloca una ortodoncia de verdad:
+         primero la arcada, luego las piezas, encima los brackets y al final
+         el alambre se enhebra por la ranura de cada uno. */
       var largo = arcada.guia.getTotalLength();
       arcada.guia.setAttribute("stroke-dasharray", largo);
       arcada.guia.setAttribute("stroke-dashoffset", largo);
       var largoArco = arcada.arco.getTotalLength();
       arcada.arco.setAttribute("stroke-dasharray", largoArco);
       arcada.arco.setAttribute("stroke-dashoffset", largoArco);
+      var largoEncia = arcada.encia.getTotalLength();
+      arcada.encia.setAttribute("stroke-dasharray", largoEncia);
+      arcada.encia.setAttribute("stroke-dashoffset", largoEncia);
 
       tl.add({
         targets: arcada.guia,
@@ -215,25 +313,48 @@
         duration: 1400, easing: "easeInOutSine"
       }, 260)
       .add({
+        targets: arcada.encia,
+        strokeDashoffset: [largoEncia, 0],
+        opacity: [0, .5],
+        duration: 1100, easing: "easeInOutSine"
+      }, "-=1180")
+      .add({
         targets: arcada.piezas,
         opacity: [0, 1],
         scale: [0.55, 1],
         translateY: [10, 0],
         duration: 780,
         delay: anime.stagger(52, { from: "center" })
-      }, "-=1000")
+      }, "-=980")
       .add({
         targets: ".bracket",
-        opacity: [0, .85],
-        scale: [0.3, 1],
-        duration: 520,
-        delay: anime.stagger(45, { from: "center" })
-      }, "-=380")
+        opacity: [0, 1],
+        scale: [0.2, 1],
+        duration: 560,
+        easing: "cubicBezier(.34,1.56,.64,1)",
+        delay: anime.stagger(48, { from: "center" })
+      }, "-=340")
       .add({
         targets: arcada.arco,
         strokeDashoffset: [largoArco, 0],
-        duration: 780, easing: "easeInOutQuad"
-      }, "-=300");
+        duration: 1150, easing: "easeInOutQuad"
+      }, "-=260")
+      /* Destello final que recorre el alambre ya colocado */
+      .add({
+        targets: arcada.arco,
+        strokeWidth: [3, 4.6, 3],
+        duration: 900, easing: "easeInOutSine"
+      }, "-=340");
+
+      /* Respiración continua y muy leve: da vida sin distraer */
+      anime({
+        targets: arcada.arco,
+        opacity: [1, .78, 1],
+        duration: 4200,
+        easing: "easeInOutSine",
+        loop: true,
+        delay: 3200
+      });
     }
 
     tl.add({
@@ -285,7 +406,32 @@
   }
 
   /* ---------- 5. Scroll: progreso, nav, parallax de capas ---------- */
+  /* ---------- Parallax de capas de fondo ----------
+     Cualquier elemento con data-parallax="0.18" se desplaza a esa fracción del
+     scroll mientras su sección está en pantalla. Se calcula desde el centro de
+     la sección para que el desplazamiento sea 0 justo cuando está centrada y no
+     se vean los bordes de la imagen. */
+  function capasParallax() {
+    var capas = $$("[data-parallax]");
+    if (!capas.length || estatico) return null;
+
+    var datos = capas.map(function (el) {
+      return { el: el, f: parseFloat(el.dataset.parallax) || 0.15, padre: el.parentElement };
+    });
+
+    return function () {
+      var vh = window.innerHeight;
+      datos.forEach(function (c) {
+        var r = c.padre.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > vh + 200) return;   /* fuera de pantalla */
+        var centro = r.top + r.height / 2 - vh / 2;
+        c.el.style.transform = "translate3d(0," + (-centro * c.f).toFixed(1) + "px,0)";
+      });
+    };
+  }
+
   function scrollGlobal(arcada) {
+    var pintarCapas = capasParallax();
     var barra = $("#progreso");
     var nav = $("#nav");
     var wa = $("#waFlota");
@@ -309,6 +455,7 @@
           arcada.anillos.style.transform = "rotate(" + (y * 0.06).toFixed(2) + "deg)";
         }
         if (aura) aura.style.setProperty("--auraY", (55 + p * 25).toFixed(0) + "%");
+        if (pintarCapas) pintarCapas();
       }
     }
 
